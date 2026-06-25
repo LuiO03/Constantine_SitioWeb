@@ -1,5 +1,11 @@
 <?php
-    $url_base = "https://luiosorio.lovestoblog.com/Constantine_SitioWeb";
+    if ($_SERVER['HTTP_HOST'] === 'localhost') {
+        // URL local XAMPP
+        $url_base = "http://localhost/Constantine_SitioWeb/";
+    } else {
+        // URL producción InfinityFree
+        $url_base = "https://luiosorio.lovestoblog.com/Constantine_SitioWeb/";
+    }
     // Aquí suponemos que 'nombres' es la clave que indica si el usuario está logueado
     $usuario_logeado = isset($_SESSION['nombres']) && !empty($_SESSION['nombres']);
 
@@ -62,13 +68,15 @@
 ?>
 
         <!--=============== PRELOADER ===============-->
+        <!--=
         <div id="preloader">
-            <img src="<?php echo $url_base;?>/images/logos/logo_solo_white.png" class="animacion_logo">
+            <img src="<?php //echo $url_base;?>/images/logos/logo_solo_white.png" class="animacion_logo">
             <div class="barra_carga">
                 <div class="progreso"></div>
                 <h1>Cargando...</h1>
             </div>
         </div>
+        -->
         <div class="nav__paginas">
             <ul>
                 <!--=============== NOSOTROS ===============-->
@@ -93,7 +101,7 @@
                     <span class="espacio"></span>
                     <!-- Logo -->
                     <a href="<?php echo $url_base;?>/index.php" class="nav__logo">
-                        <img src="<?php echo $url_base;?>/images/logos/logo_solo_black.png" alt="Logo Constantine">
+                        <img src="<?php echo $url_base;?>images\logos\logo_solo_black.png" alt="Logo Constantine">
                         <div class="texto_logo">
                             <span class="tienda_texto">Tiendas</span>
                             <div class="logo_texto">

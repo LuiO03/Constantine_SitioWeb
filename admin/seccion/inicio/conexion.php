@@ -9,7 +9,6 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
     $contraseña = "";
 
 } else {
-
     // Configuración InfinityFree
     $servidor = "sql300.infinityfree.com";
     $bd = "if0_42255430_constantine";
