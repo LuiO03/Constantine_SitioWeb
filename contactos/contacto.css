@@ -1,0 +1,430 @@
+/*=============== CONTACTO INFO/MAPA ===============*/
+
+.introduccion .sub_bloque {
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.introduccion_imagen {
+    height: 470px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.introduccion_imagen img {
+    width: 100%;
+    height: 100%;
+    transition: transform 3.0s ease;
+}
+
+.introduccion_imagen:hover img {
+    transform: scale(1.2);
+}
+
+.sub_bloque article {
+    width: calc(33.3% - 10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.datos_contacto .parrafo_cuerpo {
+    text-align: start;
+}
+
+@media (max-width: 768px) {
+
+    .introduccion .sub_bloque {
+        gap: 10px;
+    }
+
+    .sub_bloque article {
+        width: 100%; 
+        margin: 105x;
+    }
+
+    .introduccion_imagen img {
+        width: 100%;
+        transition: transform 3.0s ease;
+    }
+}
+
+/*=============== MAPA ===============*/
+
+.mapa_seccion{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+iframe {
+    width: 100%;
+    height: 70vh;
+}
+
+.datos_contacto {
+    padding: 20px 0px 0px 0px;
+}
+
+@media screen and (max-width: 480px) {
+    .datos_contacto {
+        padding: 20px 10px;
+    }
+}
+
+/*=============== DIRECCIONES ===============*/
+
+/* Contenedor principal */
+.ayuda__container {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Contenedor de las ayudas en columnas flexibles */
+.ayudas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre columnas */
+    margin: 25px auto;
+    justify-content: center;
+}
+
+/* Estilos de cada ayuda */
+.ayuda {
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    color: var(--color_blanco);
+    background-color: var(--color_secundario-dark);
+    border-radius: 12px;
+    flex-basis: calc(25% - 20px); /* Ancho del 25% para pantallas grandes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ayuda:hover {
+    transform: scale(1.05); /* Efecto hover para interacción */
+    background-color: var(--color_primario-light);
+}
+
+/* Estilos del icono */
+.icono {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--color_secundario);
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.icono i {
+    font-size: 40px;
+    color: #fff;
+    transition: transform 0.65s ease;
+}
+
+/* Efecto hover para cambiar el fondo del icono a rojo */
+.ayuda:hover .icono {
+    background-color: var(--color_primario-light);
+    border: 4px solid white;
+}
+
+.ayuda:hover .icono i {
+    transform: rotateX(30deg) rotateY(-30deg) scale(1.1);
+}
+
+/* Responsive para pantallas medianas */
+@media screen and (max-width: 1024px) {
+    .ayuda {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+/* Responsive para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+    .ayuda {
+        flex-basis: 100%;
+    }
+}
+
+/*=============== REDES SOCIALES ===============*/
+.redes_sociales__container {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--color_blanco);
+    text-align: center;
+}
+
+.redes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.redes a{
+    text-decoration: none;
+    color: var(--color_primario);
+}
+
+.red {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Hover general: Efecto rebote */
+.red:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: bounce 0.6s ease;
+}
+
+/* Iconos de redes sociales */
+.icono_red {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem;
+    background-color: var(--color_primario-light);
+    transition: background-color 0.3s ease;
+    color: #fff;
+    font-size: 48px;
+}
+
+.red:hover .icono_red {
+    animation: rotate-center 0.4s;
+ }
+ 
+ @keyframes rotate-center {
+    0% {
+       transform: rotate(0);
+    }
+    100% {
+       transform: rotate(360deg);
+    }
+ }
+/* Facebook Hover */
+.red.Facebook:hover .icono_red {
+    background-color: #4267B2; /* Color de Facebook */
+}
+
+.red.Facebook:hover a {
+    color: #4267B2;
+}
+
+/* YouTube Hover */
+.red.YouTube:hover .icono_red {
+    background-color: #FF0000; /* Color de YouTube */
+}
+
+.red.YouTube:hover a {
+    color: #FF0000;
+}
+
+/* TikTok Hover */
+.red.TikTok:hover .icono_red {
+    background-color: #000000; /* Color de TikTok */
+}
+
+.red.TikTok:hover a {
+    color: #000000;
+}
+
+/* Instagram Hover */
+.red.Instagram:hover .icono_red {
+    background-color: #E4405F; /* Color de Instagram */
+}
+
+.red.Instagram:hover a {
+    color: #E4405F;
+}
+
+/* Twitter Hover */
+.red.Twitter:hover .icono_red {
+    background-color: #1DA1F2; /* Color de Twitter */
+}
+
+.red.Twitter:hover a {
+    color: #1DA1F2;
+}
+
+/* LinkedIn Hover */
+.red.Linkedin:hover .icono_red {
+    background-color: #0077B5; /* Color de LinkedIn */
+}
+
+.red.Linkedin:hover a {
+    color: #0077B5;
+}
+
+.red.WhatsApp:hover .icono_red {
+    background-color: #25D366;
+}
+
+.red.WhatsApp:hover a {
+    color: #25D366;
+}
+
+.parrafo_cuerpo{
+    text-align: center;
+}
+
+.titulo_lista{
+    text-transform: uppercase;
+}
+
+/* Responsive para pantallas medianas */
+@media screen and (max-width: 1024px) {
+    .redes {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Más adaptabilidad */
+    }
+}
+
+/* Responsive para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .redes {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .icono_red {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icono_red i {
+        font-size: 60px;
+    }
+
+    .titulo_lista {
+        font-size: 1rem;
+    }
+}
+
+/*=============== LOCALES FÍSICOS ===============*/
+
+/* Contenedor principal */
+.contacto__locales {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--color_blanco);
+    text-align: center;
+}
+
+/* Sub bloque para los locales */
+.locales {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Grid adaptable a pantallas */
+    gap: 20px;
+}
+
+/* Tarjetas de locales */
+.local_card {
+    display: grid;
+    grid-template-columns: 40% 60%; /* Distribución de imagen e información */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover */
+.local_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen de local */
+.local_img {
+    overflow: hidden;
+}
+
+.local_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.local_card:hover .local_img img {
+    transform: scale(1.1);
+}
+
+/* Información del local */
+.local_info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Título de la zona */
+.local_info h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Iconos y texto */
+.local_info p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Botón de Google Maps */
+.local_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color_primario);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.local_btn:hover {
+    background-color: var(--color_secundario);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+
+    .locales {
+        grid-template-columns: repeat(1, 1fr); /* Grid adaptable a pantallas */
+    }
+
+    .local_card {
+        grid-template-columns: 100%; /* Imagen y texto en una columna en móviles */
+    }
+
+    .local_img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .local_info {
+        width: 100%;
+    }
+}

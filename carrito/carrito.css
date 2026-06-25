@@ -1,0 +1,412 @@
+/* Estilos generales */
+.titulo_carrito {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.carrito-contenedor {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0px auto 140px auto;
+}
+
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-carrito th, .tabla-carrito td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.producto-detalle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.producto-detalle img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.form-cantidad input {
+    width: 50px;
+    text-align: center;
+}
+
+.btn-actualizar, .btn-eliminar, .btn-checkout {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-checkout {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cantidad-container button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.3s;
+}
+
+.cantidad-container button:hover {
+    background-color: #f0f0f0;
+    color: white;
+}
+
+.cantidad-container button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.cantidad-container input.cantidad {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.btn-cantidad i {
+    font-size: 18px;
+    color: #333;
+}
+
+.btn-cantidad.btn-menos i {
+    color: #d9534f;
+}
+
+.btn-cantidad.btn-mas i {
+    color: #28a745;
+}
+
+.carrito-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+
+
+.tabla-carrito-container {
+    width: 70%;
+    margin-right: 30px;
+    overflow-x: auto;
+}
+
+.totales-container {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.totales h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.totales p {
+    margin: 10px 0;
+}
+
+.linea-dashed {
+    border: none;
+    border-top: 1px dashed #ccc;
+    margin: 10px 0;
+}
+
+/* Estilos para el botón de eliminar */
+.btn-eliminar {
+    background-color: var(--color_secundario); /* Color de fondo rojo */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 12px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Indicador de que es clickeable */
+    display: flex; /* Usamos flexbox para el ícono y el texto */
+    align-items: center; /* Alineación vertical del texto e ícono */
+    justify-content: center; /* Centra el contenido */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+}
+
+/* Estilos para el ícono dentro del botón */
+.btn-eliminar i {
+    margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}
+
+/* Efecto hover */
+.btn-eliminar:hover {
+    background-color: var(--color_primario);
+}
+
+/* Efecto focus (cuando el botón está enfocado) */
+.btn-eliminar:focus {
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.8); /* Sombra suave */
+}
+
+/* Media Queries Responsivas */
+@media (max-width: 768px) {
+    /* En pantallas pequeñas (tablets y móviles), se reorganizan los elementos */
+    
+    .carrito-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tabla-carrito-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .totales-container {
+        width: 100%;
+    }
+    
+    .tabla-carrito th, .tabla-carrito td {
+        font-size: 12px; /* Reducir el tamaño de las celdas de la tabla */
+        padding: 8px;
+    }
+    
+    .producto-detalle img {
+        width: 40px; /* Reducir el tamaño de las imágenes de los productos */
+        height: 40px;
+    }
+
+    .cantidad-container {
+        gap: 5px; /* Reducir el espacio entre los botones */
+    }
+
+    .btn-eliminar {
+        padding: 10px 14px; /* Reducir el tamaño del botón */
+        font-size: 12px; /* Reducir el tamaño de fuente */
+    }
+
+    .totales h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* En pantallas muy pequeñas, ajustar más aún los elementos */
+
+    .titulo_carrito {
+        font-size: 18px; /* Reducir el tamaño del título */
+    }
+
+    .producto-detalle {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .producto-detalle img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carrito-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tabla-carrito th, .tabla-carrito td {
+        padding: 6px;
+    }
+
+    .cantidad-container input.cantidad {
+        width: 40px;
+    }
+
+    .btn-eliminar {
+        padding: 8px 12px; /* Ajustar más el tamaño del botón */
+    }
+
+    .totales-container {
+        padding: 15px;
+    }
+}
+
+
+
+
+
+
+
+.modal-overlay.oculto {
+    display: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color_borde);
+    padding-bottom: 10px;
+}
+
+.modal-content {
+    margin-top: 20px;
+}
+
+.opciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.opcion {
+    flex: 1;
+    background-color: white;
+    color: var(--color_texto);
+    border: 1px solid var(--color_secundario);
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Montserrat";
+    font-size: 20px;
+}
+
+.opcion:hover,
+.opcion.seleccionado {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    background-color: var(--color_secundario);
+    color: white;
+}
+
+#contenidoDinamico {
+    margin-top: 20px;
+    background-color: var(--color_fondo);
+    padding: 15px;
+    border: 1px solid var(--color_borde);
+    border-radius: 8px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.boton-general {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--color_texto);
+    transition: background-color 0.3s ease;
+}
+
+.boton-secundario {
+    background-color: var(--color_secundario);
+}
+
+.boton-secundario:hover {
+    background-color: darken(var(--color_secundario), 10%);
+}
+
+.boton-cancelar {
+    background-color: gray;
+}
+
+.boton-cancelar:hover {
+    background-color: darkgray;
+}
+
+.boton-general:disabled {
+    background-color: var(--color_borde);
+    cursor: not-allowed;
+    color: #999;
+}
+
+#direccionUsuario, .lista-locales label{
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Estilos para el botón de cierre */
+.close-btn {
+    background-color: transparent;
+    border: none;
+    color: #333 ;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Cambio de color al pasar el ratón */
+.close-btn:hover {
+    color: #e74c3c;  /* Rojo para indicar que es un botón de cierre */
+    transform: scale(1.2);  /* Efecto de aumentar el tamaño */
+}
+
+/* Cambio de color al hacer clic */
+.close-btn:active {
+    color: #c0392b;  /* Un tono más oscuro de rojo cuando se presiona */
+}

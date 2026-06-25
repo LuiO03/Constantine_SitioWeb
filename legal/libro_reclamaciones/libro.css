@@ -1,0 +1,117 @@
+.titulo_contenido{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.enfasis_banner{
+    color: var(--color_primario);
+}
+
+.libro_reclamaciones {
+    padding: 20px;
+    background-color: var(--color_blanco);
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+h3 {
+    color: var(--color_secundario);
+    text-transform: uppercase;
+    margin: 20px 0px;
+}
+
+.mensaje_importante {
+    background-color: rgba(104, 195, 255, 0.2);
+    padding: 10px;
+    border-left: 4px solid var(--color_secundario);
+    font-style: italic;
+    margin-bottom: 20px;
+
+}
+
+/* Estilos para el combobox */
+.local-compra {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color_primario);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+ 
+ /* Estilos para los radio buttons */
+.radio_group {
+    display: flex;
+    gap: 25px;
+}
+ 
+.radio_label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+ 
+.radio_label input {
+    cursor: pointer;
+}
+ 
+
+.form_reclamaciones {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_grupo {
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+.form_grupo label {
+    font-weight: 500;
+    color: var(--color_primario);
+    font-size: 19px;
+}
+
+.form_grupo input, .form_grupo textarea, .form_grupo select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-family: var(--body-font);
+    margin: 15px 0px;
+    font-size: 17px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.fecha-campos{
+    display: flex;
+    gap: 10px;
+}
+
+.btn_enviar {
+    background-color: var(--color_primario);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn_enviar:hover {
+    background-color: var(--color_secundario);
+    transition: background-color 0.3s;
+}
+
+.btn_enviar i {
+    margin-right: 5px;
+}

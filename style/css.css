@@ -1,0 +1,472 @@
+/*=============== CARRUSEL PRINCIPAL BANNERS ===============*/
+
+.banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel_banner {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    height: 100%;
+}
+
+.carousel_banner .slide, .banner{
+    height: calc(100vh - 165px);
+}
+
+/* Cada slide ocupará el 100% del viewport */
+.carousel_banner .slide {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    flex-shrink: 0;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+
+    .banner,.carousel_banner .slide{
+        height: calc(100vh - 60px);
+    }
+}
+
+
+/* Contenido de cada diapositiva */
+.caption {
+    text-align: center;
+    color: var(--color_primario);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centramos el contenido horizontalmente */
+    height: 100%;
+    gap: 25px;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 20px;
+}
+
+/* Botones de navegación del carrusel */
+.btn_banner_prev, .btn_banner_next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color_secundario);
+    color: var(--color_blanco);
+    border: none;
+    font-size: 16px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn_banner_prev {
+    left: 20px;
+}
+
+.btn_banner_next {
+    right: 20px;
+}
+
+.btn_banner_prev:hover, .btn_banner_next:hover {
+    background-color: var(--color_blanco);
+    color: var(--color_secundario);
+}
+
+/* Indicadores (puntos) en la parte baja central */
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicators .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color_blanco);
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.indicators .dot.active {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+@media screen and (max-width: 690px) {
+
+    .banner {
+        border-radius: 0px;
+    }
+
+    .boton_1, .boton_2 {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/*=============== MENÚ TABS ===============*/
+
+.tab_contenido label{
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 250ms linear;
+}
+
+.tab_contenido label:hover{
+    background-color: var(--color_secundario);
+    color: white !important;
+}
+
+#radio1:checked ~ #lbl1,
+#radio2:checked ~ #lbl2,
+#radio3:checked ~ #lbl3 {
+    border-bottom: 2px solid var(--color_secundario);
+    color: var(--color_secundario);
+}
+
+#radio1:not(:checked) ~ #lbl1,
+#radio2:not(:checked) ~ #lbl2,
+#radio3:not(:checked) ~ #lbl3 {
+    color: var(--color_primario);
+}
+
+.tab_contenido{
+    position: relative;
+
+}
+
+.tab_contenido article{
+    width: 100%;
+    display: none;
+    opacity: 0; /* Oculto inicialmente */
+    transform: translateY(50px); /* Posicionado ligeramente hacia abajo */
+    transition: all 100ms ease-in-out; /* Suaviza la animación */
+    padding: 20px;
+    background-color: var(--color_blanco);
+}
+
+#radio1, #radio2, #radio3{
+    display: none;
+}
+
+/* Animación de aparición de abajo hacia arriba */
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3{
+    display: flex;
+    opacity: 1; /* Hace visible el contenido */
+    transform: translateY(0); /* Desplaza a su posición final */
+}
+
+/* Agregando un poco de suavidad en la animación */
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3{
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Definición de la animación */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Empieza desde abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Llega a su posición normal */
+    }
+}
+
+/*=============== TABS CONTENIDO EN BASE.PHP===============*/
+
+ 
+
+
+/*=============== PRODUCTOS DAMAS/CABALLEROS/NIÑOS ===============*/
+
+/* Contenedor principal del carrusel */
+.carousel_container {
+    width: 90%;
+    position: relative;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper {
+    width: 100%;
+}
+  
+.owl-dots {
+    display: flex !important; /* Fuerza la visibilidad */
+    justify-content: center;
+    margin-top: 15px;
+}
+  
+.owl-dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #cecece !important; /* Asegura el color de los puntos */
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+  
+.owl-dot.active {
+    background-color: var(--color_secundario) !important; /* Color del punto activo */
+}
+
+.carousel .producto {
+    width: 100%;
+}
+
+.publico_boton_atras,
+.publico_boton_siguiente {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: var(--color_secundario);
+    color: var(--color_blanco);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 3;
+}
+  
+.publico_boton_atras {
+    left: -30px;
+}
+  
+.publico_boton_siguiente {
+    right: -30px;
+}
+  
+.publico_boton_atras:hover,
+.publico_boton_siguiente:hover {
+    background-color: var(--color_primario);
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+
+    .publico_boton_atras {
+        left: 0;
+    }
+
+    .publico_boton_siguiente {
+        right: 0;
+    }
+}
+  
+
+
+/*=============== CATEGORÍAS ===============*/
+
+.categorias_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0px;
+}
+
+.categoria {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-size: 100%; /* Imagen con tamaño inicial normal */
+    background-position: center;
+    height: 300px;
+    transition: background-size 1.5s ease; /* Transición para el zoom */
+    border: 1px solid white;
+    z-index: 1;
+}
+
+.categoria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+     /* Asegura que esté encima de la imagen pero debajo del contenido */
+}
+
+.categoria:hover::before {
+    opacity: 1;
+}
+
+/* Aquí está el zoom de la imagen */
+.categoria:hover {
+    background-size: 110%; /* Incrementa el tamaño de la imagen de fondo */
+    background-position: center;
+}
+
+.contenido_tarjeta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    color: #fff;
+}
+
+.titulo_lista{
+    text-align: left;
+    font-size: 45px;
+    margin: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 black;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+
+    .categorias_grid{
+        margin: 0px 30px;
+    }
+
+    .categoria {
+        height: 300px;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .categoria {
+        height: 150px;
+        margin: 5px 25px;
+    }
+}
+
+/*=============== RAZÓN ===============*/
+
+/* Sección de Razones de Compra */
+
+.razones {
+    display: flex;
+    gap: 0px;
+    flex-wrap: wrap;
+}
+
+.razon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    text-align: center;
+    transition: all 0.3s;
+    padding: 40px 0px;
+    border-top: 2px solid var(--color_secundario);
+    box-sizing: border-box;
+}
+
+.razon:hover {
+    background: var(--color_secundario);
+    color: var(--color_blanco)
+}
+
+.parrafo_cuerpo{
+    text-align: center;
+}
+
+.circleborder {
+    position: relative;
+    width: 150px;
+    height: 90px;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    background: var(--color_secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.circleborder i {
+    font-size: 40px;
+    color: var(--color_blanco);
+    transition: transform 0.65s;
+}
+
+.razon:hover i {
+    transform: rotateY(360deg) scale(1.5);
+}
+
+.razon:hover .circleborder {
+    background-color: var(--color_primario);
+}
+
+/* Títulos y texto */
+.razones h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 0 10px;
+    color: var(--color_primario);
+    transition: color 0.25s;
+}
+
+.razones p {
+    font-size: 13px;
+    color: var(--color_primario);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    max-width: 200px;
+    margin: 0 auto; /* Center the paragraph text */
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+
+    .circleborder {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .circleborder i {
+        font-size: 50px;
+    }
+
+    .razones{
+        margin: 0px 25px;
+    }
+
+    .razon {
+        width: 50%;
+        border: none;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .razon {
+        width: 50%;
+    }
+}
+
+@media (max-width: 458px) {
+    
+    .razon {
+        width: 100%;
+    }
+}
+

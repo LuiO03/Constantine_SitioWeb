@@ -1,0 +1,243 @@
+/*=============== BLOG Y ASIDE ===============*/
+
+.blog__articulos {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 2rem 0;
+    background-color: var(--color_blanco);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    margin: 20px;
+}
+
+.sidebar {
+    background-color: var(--color_blanco);
+    border-left: 1px solid #ddd;
+    padding: 2rem;
+}
+
+.sidebar__widget {
+    margin-bottom: 2rem;
+}
+
+.widget_list {
+    text-align: start;
+    list-style-type: none;
+    padding: 0;
+    font-size: 18px;
+    padding: 15px 0px;
+}
+
+.widget_list li {
+    margin-bottom: 0.5rem;
+}
+
+.widget_list a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.widget_list a:hover {
+    color: var(--color_primario);
+}
+
+.newsletter_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter_form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.newsletter_form button {
+    padding: 0.5rem;
+    border: none;
+    background-color: var(--color_primario);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter_form button:hover {
+    background-color: var(--color_secundario);
+}
+
+.articulo {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.articulo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.articulo_img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 3.0s ease; 
+}
+
+.articulo_img {
+    overflow: hidden; 
+}
+
+.articulo:hover .articulo_img img {
+    transform: scale(1.1);
+}
+
+.articulo_info {
+    padding: 1.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.categoria {
+    font-size: 0.9rem;
+    color: var(--color_secundario);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.categoria i {
+    font-size: 1.2rem;
+    color: var(--color_primario);
+}
+
+.articulo_titulo {
+    font-size: 1.5rem;
+    color: var(--color_primario);
+    margin-bottom: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.articulo_resumen {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    white-space: normal;
+}
+
+/*=============== RESPONSIVE DESIGN ===============*/
+
+@media screen and (max-width: 900px) {
+
+    .blog__articulos {
+        grid-template-columns: 1fr; 
+    }
+
+    .sidebar {
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*=============== BOTON LEER MÁS===============*/
+
+.boton_leermas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 12rem;
+    cursor: pointer;
+    background-color: var(--color_blanco);
+    border: 0;
+}
+
+.boton_icono {
+
+    width: 3rem;
+    height: 3rem;
+    background: var(--color_primario);
+    border-radius: 1.625rem;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.icon.arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    transition: all 0.3s ease;
+}
+
+.icon.arrow::before {
+    content: '';
+    position: absolute;
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    transition: translate 0.3s ease;
+}
+
+.boton_texto {
+    position: absolute;
+    padding: 0.75rem 0;
+    margin-left: 80px;
+    color: #282936;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.boton_leermas:hover .boton_icono {
+    width: 100%;
+}
+
+.boton_leermas:hover .icon.arrow {
+    transform: translate(20px);
+}
+
+.boton_leermas:hover .boton_texto {
+    color: #fff;
+}
+

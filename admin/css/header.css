@@ -1,0 +1,961 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+@font-face {
+    font-family: "BankGothic";
+    src: url('../../fonts/BankGothic-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url('../fonts/Oswald-Regular.ttf') format('truetype'),
+            url('../../fonts/Oswald-Regular.woff') format('woff'),
+            url('../../fonts/Oswald-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url('../../fonts/Montserrat-ExtraLight.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    /*========== Tipografías ==========*/
+
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --nav_font: 'Outfit','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --titulo_font: "Outfit", sans-serif;
+    --logo_font: "BankGothic";
+
+    /*========== Colores Tema Claro ==========*/
+
+    --color_primario: #000000;
+    --color_secundario: #FF0033;
+    --color_blanco: #ffebeb;
+
+    --titulo_cuerpo: 30px;
+    --subtitulo_cuerpo: 20px;
+    --parrafo_cuerpo: 15px;
+    --titulo_lista: 23px;
+
+    --color_barra_lateral:rgb(255,255,255);
+    --color_barra_superior:rgb(238,238,238);
+
+    --color_texto: rgb(0,0,0);
+    --color_texto_menu:rgb(42, 42, 42);
+
+    --color_menu_hover:rgb(238,238,238);
+    --color_menu_hover_texto:rgb(0,0,0);
+    --color_submenu_bg: #c7f6fa;
+
+    --color_boton: #FF0033;
+    --color_boton_hover: rgb(0,0,0);
+    --color_boton_texto:rgb(255,255,255);
+    --color_hover_modulo: linear-gradient(to left, #FF317A, var(--color_secundario));
+
+    --color_linea:rgb(180,180,180);
+
+    --color_switch_base :rgb(201,202,206);
+    --color_switch_circulo:rgb(148, 148, 148);
+
+    --color_scroll:rgb(192,192,192);
+    --color_scroll_hover:rgb(134,134,134);
+
+    --color_main_bg: rgb(250, 250, 250);
+    --color_main_text: rgb(0, 0, 0);
+}
+
+.modo_oscuro{
+
+    --color_barra_lateral:#171717;
+    --color_barra_superior:rgb(30, 30, 30);
+
+    --color_texto:rgb(255,255,255);
+    --color_texto_menu:rgb(179, 179, 179);
+
+    --color_menu_hover:rgb(0,0,0);
+    --color_menu_hover_texto:rgb(238,238,238);
+    --color_submenu_bg: rgb(0, 0, 0);
+
+    --color_boton:rgb(255,255,255);
+    --color_boton_hover: #ff3131;
+    --color_boton_texto:rgb(0,0,0);
+    
+    --color_linea:rgb(90,90,90);
+
+    --color_switch_base :#ff3131;
+    --color_switch_circulo:rgb(255,255,255);
+
+    --color_scroll:rgb(68,69,74);
+    --color_scroll_hover:rgb(85,85,85);
+
+    --color_main_bg: rgb(44, 44, 44);
+    --color_main_text: rgb(255, 255, 255);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.disabled {
+    pointer-events: none;
+    color: gray;
+    text-decoration: none;
+    cursor: not-allowed;
+}
+
+/*========== COLOR DE LA SELECCIÓN ==========*/
+
+::selection {
+    background-color: var(--color_secundario); /* Color de fondo al seleccionar */
+    color: white; /* Color del texto al seleccionar */
+}
+
+/*========== MENÚ ==========*/
+
+.menu_hamburguesa {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--color_texto);
+    transition: all 0.5s ease;
+}
+
+/* Animación de los iconos */
+.icono {
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+}
+
+.icono.mostrar {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.icono.ocultar {
+    opacity: 0;
+    transform: rotate(-180deg);
+}
+
+/*========== BARRA LATERAL ==========*/
+
+.barra_lateral{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--color_barra_lateral);
+    transition: width 0.5s ease,background-color 0.3s ease,left 0.5s ease;
+    font-family: var(--nav_font);
+    z-index: 100;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*========== BARRA LATERAL RETRAIDO ==========*/
+
+.mini-barra_lateral{
+    width: 88px;
+}
+
+.mini-barra_lateral .navegacion span{
+    margin-bottom: 25px;
+}
+
+.mini-barra_lateral .navegacion:hover{
+    width: 250px;
+}
+
+.mini-barra_lateral a:hover .oculto{
+    opacity: 1;
+}
+
+.mini-barra_lateral .subcategoria .oculto{
+    opacity: 1;
+}
+
+.mini-barra_lateral .arrow{
+    display: none;
+}
+
+.barra_lateral span{
+    width: 100px;
+    white-space: nowrap;
+    font-size: 17px;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease,width 0.5s ease,height 0.5s ease;
+}
+
+.barra_lateral span.oculto{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/*========== NOMBRE DE LA PAGINA (CONSTANTINE) ==========*/
+
+.logo_contenedor{
+    padding: 20px 0px;
+}
+
+.nombre_pagina{
+    width: 100%;
+    height: 100%;
+    color: var(--color_texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.nombre_pagina img{
+    width: 40px;
+}
+
+.nombre_pagina span{
+    font-family: var(--logo_font);
+    font-size: 19px;
+    width: 100%;
+    text-align: center;
+}
+
+.categorias{
+    padding: 0px;
+}
+
+.categoria{
+    cursor: pointer;
+}
+
+.titulo_cuerpo{
+    font-size: var(--titulo_cuerpo);
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.text_red{
+    color: var(--color_secundario);
+}
+
+.text_white{
+    color: var(--color_blanco);
+}
+
+.subtitulo_cuerpo{
+    font-size: var(--subtitulo_cuerpo);
+    color: var(--color_primario);
+    padding: 0px 10px 10px 10px;
+    font-weight: 300;
+}
+
+.parrafo_cuerpo{
+    font-size: var(--parrafo_cuerpo);
+    text-align: start;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+/*========== MENÚ DE NAVEGACIÓN ==========*/
+
+.barra_lateral .navegacion{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 0px;
+}
+
+.barra_lateral .navegacion li {  
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra_lateral .navegacion a {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color_texto_menu);
+    padding-left: 25px;
+    gap: 10px;
+    border-left: 4px solid transparent;
+    transition: all 0.1s ease;
+}
+
+.barra_lateral .navegacion a:hover, .categorias li.active a,.barra_lateral .navegacion .submenu li a:hover {
+    background: var(--color_hover_modulo);
+    color: white;
+    border-left: 4px solid var(--color_texto);
+    padding-left: 35px;
+}
+
+.categorias .submenu li .active a {
+    background: var(--color_hover_modulo);
+    color: white;
+    border-left: 3px solid var(--color_boton);
+    padding-left: 35px;
+}
+
+.barra_lateral .navegacion a:hover i,.barra_lateral .navegacion .submenu li a:hover i{
+    color: white;
+}
+
+.barra_lateral .navegacion i {
+    font-size: 25px;
+}
+
+.icon {
+    display: none;
+}
+
+.line {
+    display: inline;
+}
+
+.barra_lateral .navegacion a:hover .line {
+    display: none;
+}
+
+.barra_lateral .navegacion a:hover .fill {
+    display: inline;
+}
+
+.barra_lateral .navegacion .submenu {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 0; 
+    margin-top: 0;
+    transition: max-height 0.3s ease;
+    background-color: var(--color_submenu_bg);
+    z-index: 1; 
+}
+
+.barra_lateral .navegacion .submenu.show {
+    max-height: 200px; 
+}
+
+.barra_lateral .navegacion .submenu li {
+    list-style: none;
+}
+
+.barra_lateral .navegacion .submenu li a {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+
+.barra_lateral .navegacion .arrow {
+    margin-left: auto;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.barra_lateral .navegacion .submenu-toggle.active .arrow {
+    transform: rotate(90deg);
+}
+
+.barra_lateral .navegacion::-webkit-scrollbar{
+    width: 5px;
+}
+
+.barra_lateral .navegacion::-webkit-scrollbar-thumb{
+    background-color: var(--color_scroll);
+    border-radius: 5px;
+}
+
+.barra_lateral .navegacion::-webkit-scrollbar-thumb:hover{
+    background-color: var(--color_scroll_hover);
+}
+
+.mini-barra_lateral .navegacion::-webkit-scrollbar{
+    width: 0px;
+}
+
+/*========== LINEA HORIZONTAL ==========*/
+
+.barra_lateral .linea{
+    width: 100%;
+    height: 1px;
+    background-color: var(--color_linea);
+    padding: 0px;
+    margin: 0px;
+}
+
+/*========== DARK MODE ==========*/
+
+.barra_lateral .modo_oscuro{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px 10px;
+}
+
+.barra_lateral .modo_oscuro .info{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.barra_lateral .modo_oscuro .info span{
+    color: var(--color_linea);
+}
+
+.barra_lateral .modo_oscuro i{
+    font-size: 25px;
+    color: var(--color_linea);
+}
+
+/*========== INTERRUPTOR ==========*/
+
+.barra_lateral .modo_oscuro .switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    cursor: pointer;
+}
+
+.barra_lateral .modo_oscuro .base{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    background: var(--color_hover_modulo);
+    border-radius: 50px;
+}
+
+.barra_lateral .modo_oscuro .switch .circulo {
+    position: absolute;
+    width: 18px;
+    height: 90%;
+    background-color: var(--color_switch_circulo);
+    border-radius: 50%;
+    left: 2px;
+    transition: left 0.5s ease;
+}
+
+.barra_lateral .modo_oscuro .switch .circulo.prendido {
+    left: 15px; 
+}
+
+/*========== MAIN/CONTENIDO ==========*/
+
+main {
+    margin-left: 250px;
+    padding: 90px 40px;
+    color: var(--color_main_text);
+    transition: margin-left 0.5s ease, background-color 0.5s ease, color 0.5s ease;
+    background-color: var(--color_main_bg);
+    height: 100%;
+    overflow: scroll;
+}
+
+main.min-main {
+    margin-left: 80px;
+}
+
+main::-webkit-scrollbar{
+    width: 5px;
+}
+
+main::-webkit-scrollbar-thumb{
+    background-color: var(--color_scroll);
+    border-radius: 5px;
+}
+
+main::-webkit-scrollbar-thumb:hover{
+    background-color: var(--color_scroll_hover);
+}
+
+.titulo_categoria{
+    font-family: var(--titulo_font);
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.titulo_categoria i{
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.table-fixed th, .table-fixed td {
+    max-width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.input_error {
+    display: none;
+}
+.table thead tr{
+    background: var(--color_barra_superior);
+}
+.table thead th{
+    background: transparent;
+    text-transform: uppercase;
+}
+/*========== BARRA SUPERIOR ==========*/
+
+.barra_superior {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--color_barra_superior);
+    justify-content: end;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: left 0.3s ease;
+    color: var(--color_texto);
+    width: 100%;
+    z-index: 1;
+    padding-right: 50px;
+}
+
+.informacion_barra{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+/* Ajuste cuando la barra lateral se minimiza */
+.min-barra_lateral .barra_superior {
+    left: 80px;
+}
+
+/* Fecha y usuario en la barra superior */
+.barra_superior .fecha {
+    color: var(--color_texto_superior);
+    font-size: 19px;
+    margin-right: 10px;
+}
+
+
+/*========== USUARIO ==========*/
+
+.barra_superior .usuario {
+    display: flex;
+    align-items: center;
+}
+
+.barra_superior .usuario img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgb(173, 173, 173);
+}
+
+.barra_superior .usuario .info_usuario {
+    display: flex;
+    align-items: center;
+    color: var(--color_texto_superior);
+    gap: 10px;
+    justify-content: center;
+}
+
+.info_usuario div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.barra_superior .usuario .mensaje_usuario {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+.barra_superior .usuario .nombre {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+
+/*========== BOTONES DE LA BARRA SUPERIOR ==========*/
+
+.botones_barra_superior {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.boton {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: 8px;
+    background: var(--color_hover_modulo);
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.boton span {
+    position: relative;
+    z-index: 2; /* Eleva el texto por encima del pseudo-elemento */
+    transition: all 0.3s ease;
+}
+
+.boton i {
+    font-size: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.boton::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -150px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color_primario);
+    z-index: 1;
+    transition: all 0.8s ease-in-out, color 0.3s;
+}
+
+.boton:hover::after {
+    left: 0px;
+}
+
+/*========== ESTILOS PARA EL MENÚ DE PERFIL DESPLEGABLE ==========*/
+
+.usuario {
+    position: relative;
+}
+
+.toggle-profile_menu {
+    display: none;
+    color: var(--color_texto);
+}
+
+.boton_usuario{
+    cursor: pointer;
+    padding: 5px 5px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.boton_usuario i{
+    font-size: 20px;
+}
+
+.boton_usuario:hover{
+    background: var(--color_main_bg);
+    color: var(--color_menu_hover_texto);
+}
+
+.profile_menu {
+    display: none; /* Oculto inicialmente */
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background-color: var(--color_barra_lateral);
+    color: var(--color_texto);
+    border-radius: 8px;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 15px;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostrar el menú de perfil cuando el checkbox está activado */
+.toggle-profile_menu:checked ~ .profile_menu {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Encabezado del perfil en el menú */
+.profile_header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Imagen del perfil */
+.profile_header-img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+/* Información del perfil: nombre y género alineados a la derecha de la imagen */
+.profile_header-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+}
+
+.nombre_completo {
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap; /* Evita que el nombre se divida si hay espacio */
+}
+
+/* Opciones del menú */
+.profile_menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    color: var(--color_texto);
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.profile_menu-item:hover {
+    background: var(--color_hover_modulo);
+    color: white;
+}
+
+.profile_menu-item i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/*========== ESTILOS PARA LA MODAL DEL PERFIL ==========*/
+
+.form-layout {
+    display: flex;
+    flex-wrap: wrap; /* Para que sea responsivo */
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+}
+
+/* Imagen y botones */
+.profile-photo {
+    flex: 1 1 30%; /* Ocupa el 30% del ancho en pantallas grandes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.photo-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Inputs */
+.form-inputs {
+    flex: 1 1 65%; /* Ocupa el 65% del ancho en pantallas grandes */
+}
+
+/* Estilo para los inputs */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-wrapper input {
+    flex: 1; /* Los inputs ocupan todo el ancho disponible */
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .form-layout {
+        flex-direction: column; /* En pantallas pequeñas, apilar contenido */
+    }
+
+    .profile-photo,
+    .form-inputs {
+        flex: 1 1 100%; /* Ocupan el 100% del ancho */
+    }
+}
+
+
+/*========== BOTONES FLOTANTES DEL MAIN ==========*/
+
+.main_botones_flotantes {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    z-index: 1000; 
+}
+
+.botones_fixed{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botones_fixed ul {
+    margin: 0;
+    padding: 0;
+}
+
+.botones_fixed li {
+    list-style-type: none;
+}
+
+.botones_fixed a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.boton_pdf {
+    background-color: #ff3131;
+}
+
+.boton_excel {
+    background-color: #28a745;
+}
+
+.boton_agregar {
+    background-color: #000;
+}
+
+.boton_agregar a{
+    background-color: #000;
+    width: 70px; 
+    height: 70px;
+}
+
+.botones_fixed a:hover {
+    background-color: rgb(62, 62, 62);
+}
+
+.botones_fixed i {
+    font-size: 24px; 
+}
+
+
+@media (max-height: 660px){
+
+    .barra_lateral .nombre_pagina{
+        margin-bottom: 5px;
+    }
+    .barra_lateral .modo_oscuro{
+        margin-bottom: 3px;
+    }
+}
+
+@media (max-width: 600px){
+
+    .barra_lateral{
+        position: fixed;
+        left: -250px;
+    }
+    
+    .info_usuario{
+        font-size: 15px;
+    }
+
+    .max-barra_lateral{
+        left: 0;
+    }
+    .menu_hamburguesa{
+        display: flex;
+    }
+
+    main{
+        margin-left: 0;
+    }
+
+    main.min-main{
+        margin-left: 0;
+    }
+    
+    .fecha, .boton span{
+        display: none;
+    }
+
+    .barra_superior{
+        justify-content: space-between;
+        padding-right: 10px;
+    }
+
+    .barra_superior .boton{
+        width: 50px;
+    }
+}
+

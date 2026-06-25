@@ -1,0 +1,580 @@
+/*=============== BASE ===============*/
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== HEADER ===============*/
+
+.header_nav {/*Js*/
+  position: sticky;
+  height: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color_blanco);
+  box-shadow: 0 2px 16px hsla(220, 32%, 60%, .3);
+  z-index: var(--z_fixed);
+  transition: all 0.3s ease-in-out;
+}
+
+.linea{
+  width: 100%;
+  height: 1px;
+  background-color: var(--color_gris);
+  opacity: 0.5;
+  padding: 0px;
+  margin: 0px auto;
+}
+
+.nav__logo{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav__logo img {
+  width: 50px;
+}
+
+.logo_texto {
+  font-family: "BankGothic";
+  display: inline-block;
+  letter-spacing: 4px;
+  margin: 0px 5px;
+  overflow: hidden;
+}
+
+.logo_texto span {
+  display: inline-flex;
+  font-size: 25px;
+  transition: 0.4s;
+  text-shadow: 0 -50px black;
+}
+
+.logo_texto:hover span {
+  transform: translateY(50px);
+}
+
+/*=============== NAV ===============*/
+
+.nav {
+  font-family: var(--nav-font);
+  max-width: 1200px;
+  margin-inline: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-inline: auto;
+}
+
+.nav__logo,
+.nav__burger,
+.nav__close {
+  color: var(--color_primario);
+}
+
+.nav__paginas{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color_primario);
+  height: 40px;
+}
+
+.nav__paginas ul{
+  width: 1200px;
+  font-family: var(--nav-font);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__paginas li a{
+  padding: 15px;
+}
+
+.pag__link{
+  color: wheat;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.pag__link:hover{
+  background-color: var(--color_secundario);
+}
+
+.nav__data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.nav_data_botones{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.texto_logo{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--body-font);
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.nav__menu{
+  height: 50px;
+}
+
+.nav__list{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__publico{
+  display: inline-flex;
+  gap: 30px;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: var(--font_semi_bold);
+}
+
+.nav__logo i {
+  font-weight: initial;
+  font-size: 1.25rem;
+}
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.nav__toggle i{
+  font-size: 30px;
+}
+
+.nav__burger, 
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+.nav__user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/*=============== CARRITO BOTÓN ===============*/
+.carrito_boton {
+  position: relative; /* Necesario para posicionar el contador sobre el ícono */
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Estilo del ícono */
+.carrito_boton i {
+  font-size: 24px; /* Tamaño del ícono */
+  margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}
+
+/* Estilo del contador dentro del círculo */
+.contador-carrito {
+  position: absolute;
+  top: -5px; /* Ajusta la posición en el eje vertical */
+  right: -5px; /* Ajusta la posición en el eje horizontal */
+  width: 20px; /* Tamaño del círculo */
+  height: 20px; /* Tamaño del círculo */
+  background-color: red; /* Color de fondo del círculo */
+  color: white; /* Color del número */
+  border-radius: 50%; /* Hace que sea un círculo */
+  font-size: 12px; /* Tamaño del número */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Opcional: Efecto cuando el número cambia (como hover) */
+.carrito_boton:hover .contador-carrito {
+  background-color: #28a745; /* Cambia el color cuando el usuario pasa el mouse */
+}
+
+
+.espacio{
+  width: 165px;
+}
+
+.user__boton {
+  font-family: var(--nav-font);
+  position: relative;
+  width: 165px;
+  padding: 10px 15px;
+  background-color: var(--color_secundario);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.user__boton i, .user__boton span{
+  z-index: 2;
+}
+
+.user__boton::after {
+  position: absolute;
+  top: 0px;
+  left: -180px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  content: "";
+  transition: all 0.8s ease-in-out;
+  background-color: var(--color_primario);
+}
+
+.user__boton:hover::after {
+  left: 0px;
+}
+
+.user__boton:hover {
+  transform: scale(0.95);
+}
+
+.nav_boton , .buscador_boton{
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--color_primario);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav_boton:hover {
+  color: var(--color_secundario);
+}
+
+.nav_boton i, .buscador_boton i{
+  color: var(--color_primario);
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.buscador_boton i {
+  opacity: 0;
+}
+
+.nav_info_movil{
+  display: none;
+}
+
+.nav_boton span{
+  display: none;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1024px) {
+
+  .nav__data {
+    justify-content: space-around;
+  }
+
+  .nav__publico{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .nav__user{
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .nav__paginas, .buscador_boton, .espacio{
+    display: none;
+  }
+
+  .nav_boton{
+    gap: 10px;
+    padding-left: 20px;
+  }
+
+  .nav_boton span{
+    display: flex;
+  }
+
+  .nav_info_movil{
+    display: block;
+  }
+
+  .nav_info_movil .linea{
+    margin: 15px;
+    width: 95%;
+  }
+
+  .texto_logo .tienda_texto{
+    display: none;
+  }
+
+  .buscador_boton, .user__boton{
+    width: auto;
+  }
+
+  .nav__logo img {
+    width: 30px;
+  }
+  
+  .logo_texto span {
+    font-size: 16px;
+  }
+
+  .logo_texto {
+    font-size: 16px;
+  }
+
+  .nav__data{
+    height: 60px;
+  }
+
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+  
+  .nav__list {
+    flex-direction: column;
+    background-color: var(--color_blanco);
+    padding: 20px 0px;
+  }
+  
+}
+
+.nav__link {
+  color: var(--color_primario);
+  background-color: transparent;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  transition: background-color .3s;
+  text-transform: uppercase;
+}
+
+.nav__link:hover {
+  color: var(--color_secundario);
+}
+
+/* Show menu */
+.show-menu {
+  opacity: 1;
+  top: 3.7rem;
+  pointer-events: initial;
+}
+
+/* Show icon */
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+
+
+/*=============== DROPDOWN ===============*/
+
+.dropdown__item {
+  cursor: pointer;
+}
+
+.dropdown__arrow {
+  font-size: 1.25rem;
+  font-weight: initial;
+  transition: transform .4s;
+}
+
+.dropdown__link, 
+.dropdown__sublink {
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  color: var(--color_blanco);
+  background-color: var(--color_primario-light);
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-weight: var(--font_semi_bold);
+  transition: background-color .3s;
+}
+
+.dropdown__link i, 
+.dropdown__sublink i {
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.dropdown__link:hover, 
+.dropdown__sublink:hover {
+  background-color: var(--color_secundario);
+  
+}
+
+.dropdown__menu, 
+.dropdown__submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease-out;
+}
+
+/* Show dropdown menu & submenu */
+.dropdown__item:hover .dropdown__menu, 
+.dropdown__subitem:hover > .dropdown__submenu {
+  max-height: 1000px;
+  transition: max-height .4s ease-in;
+}
+
+/* Rotate dropdown icon */
+.dropdown__item:hover .dropdown__arrow {
+  transform: rotate(180deg);
+}
+
+/*=============== DROPDOWN SUBMENU ===============*/
+.dropdown__add {
+  margin-left: auto;
+}
+
+.dropdown__sublink {
+  background-color: var(--color_gris);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 450px) {
+
+  .logo_texto {
+    font-size: 13px;
+  }
+
+  .nav {
+    margin-inline: 1rem;
+  }
+
+  .nav__link {
+    padding-inline: 1rem;
+  }
+
+  .btn_txt{
+    display: none;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1025px) {
+
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__list {
+    height: 100%;
+    gap: 35px;
+  }
+  
+  .nav__link {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+
+  .nav__link:hover {
+    background-color: transparent;
+  }
+
+  .dropdown__item, 
+  .dropdown__subitem {
+    position: relative;
+  }
+
+  .dropdown__menu, 
+  .dropdown__submenu {
+    max-height: initial;
+    overflow: initial;
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, top .3s;
+  }
+
+  .dropdown__link, 
+  .dropdown__sublink {
+    padding-inline: 1rem 3.5rem;
+  }
+
+  .dropdown__subitem .dropdown__link {
+    padding-inline: 1rem;
+  }
+
+  .dropdown__submenu {
+    position: absolute;
+    left: 100%;
+    top: .5rem;
+  }
+
+  /* Show dropdown menu en modo escritorio */
+  .dropdown__item:hover .dropdown__menu {
+    opacity: 1;
+    top: 3.2rem;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+
+  /* Show dropdown submenu */
+  .dropdown__subitem:hover > .dropdown__submenu {
+    opacity: 1;
+    top: 0;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+}
