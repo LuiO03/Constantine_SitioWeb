@@ -167,8 +167,11 @@
                      <?php foreach ($productos_nuevo as $producto): ?>
                         <div class="producto">
                               <div class="imagen_contendedor">
-                                 <img src="images/productos/<?php echo htmlspecialchars($producto['nombre_publico']); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
-                                 <a class="ver_producto" href="productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
+
+                                 <img src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+
+
+                                 <a class="ver_producto" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                     <i class="ri-eye-fill"></i>
                                     <span>VER</span>
                                  </a>
@@ -180,7 +183,7 @@
                                     <span class="precio">S/.<?php echo number_format($producto['precio_venta'], 2); ?></span>
                                     <div class="producto_botones">
                                           
-                                          <a class="btn_agregar" href="<?php echo $producto['id_producto']; ?>"><i class="ri-heart-line"></i></a>
+                                          <a class="btn_agregar" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>"><i class="ri-heart-line"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -197,8 +200,9 @@
                      <?php foreach ($productos_vendido as $producto): ?>
                         <div class="producto">
                               <div class="imagen_contendedor">
-                                 <img src="images/productos/<?php echo htmlspecialchars($producto['nombre_publico']); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
-                                 <a class="ver_producto" href="productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
+                                 <img src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+
+                                 <a class="ver_producto" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                     <i class="ri-eye-fill"></i>
                                     <span>VER</span>
                                  </a>
@@ -210,7 +214,7 @@
                                     <span class="precio">S/.<?php echo number_format($producto['precio_venta'], 2); ?></span>
                                     <div class="producto_botones">
                                           
-                                          <a class="btn_agregar" href="<?php echo $producto['id_producto']; ?>"><i class="ri-heart-line"></i></a>
+                                          <a class="btn_agregar" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>"><i class="ri-heart-line"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -227,8 +231,8 @@
                   <?php foreach ($productos_barato as $producto): ?>
                         <div class="producto">
                               <div class="imagen_contendedor">
-                                 <img src="images/productos/<?php echo htmlspecialchars($producto['nombre_publico']); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
-                                 <a class="ver_producto" href="productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
+                                 <img src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                                 <a class="ver_producto" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                     <i class="ri-eye-fill"></i>
                                     <span>VER</span>
                                  </a>
@@ -240,7 +244,7 @@
                                     <span class="precio">S/.<?php echo number_format($producto['precio_venta'], 2); ?></span>
                                     <div class="producto_botones">
                                           
-                                          <a class="btn_agregar" href="<?php echo $producto['id_producto']; ?>"><i class="ri-heart-line"></i></a>
+                                          <a class="btn_agregar" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>"><i class="ri-heart-line"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -252,7 +256,7 @@
                </article>
 
                <div class="boton_contenedor">
-                  <a href="productos/?publico=" class="boton_general">
+                  <a href="<?php echo $url_base; ?>productos/?publico=" class="boton_general">
                      <i class="ri-shopping-bag-2-fill"></i>
                      <span>VER MÁS PRODUCTOS</span>
                   </a>
@@ -270,7 +274,7 @@
             <div class="categorias_grid sub_bloque">
 
                <?php  foreach($lista_categorias as $categoria){  ?>
-                  <a href="productos/?publico=&categoria=<?php echo $categoria['nombre_categoria'];?>" class="categoria" style="background-image: url('images/categorias/<?php echo $categoria['imagen'];?>');">
+                  <a href="<?php echo $url_base; ?>productos/?publico=&categoria=<?php echo $categoria['nombre_categoria'];?>" class="categoria" style="background-image: url('<?php echo $url_base; ?>images/categorias/<?php echo $categoria['imagen'];?>');">
                      <div class="contenido_tarjeta">
                         <div class="titulo_lista"><?php echo $categoria['nombre_categoria'];?></div>
                      </div>
@@ -296,9 +300,9 @@
                      <?php foreach ($productos_caballeros as $producto) { ?>
                         <div class="producto">
                            <div class="imagen_contendedor">
-                              <img src="images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                              <img src="<?php echo $url_base; ?>/images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
 
-                              <a class="ver_producto" href="productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
+                              <a class="ver_producto" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                  <i class="ri-eye-fill"></i>
                                  <span>VER</span>
                               </a>
@@ -352,7 +356,7 @@
                      <?php foreach ($productos_damas as $producto) { ?>
                         <div class="producto">
                            <div class="imagen_contendedor">
-                              <img src="images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                              <img src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
 
                               <a class="ver_producto" href="productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                  <i class="ri-eye-fill"></i>
@@ -443,7 +447,7 @@
             </div>
    
             <div class="boton_contenedor">
-               <a href="productos/?publico=3" class="boton_general">
+               <a href="<?php echo $url_base; ?>productos/?publico=3" class="boton_general">
                   <i class="ri-football-fill"></i>
                   <span>VER MÁS ROPA PARA NIÑOS</span> 
                </a>
@@ -466,9 +470,9 @@
                      <?php foreach ($productos_ninas as $producto) { ?>
                         <div class="producto">
                            <div class="imagen_contendedor">
-                           <img src="images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                           <img src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
 
-                              <a class="ver_producto" href="productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
+                              <a class="ver_producto" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                  <i class="ri-eye-fill"></i>
                                  <span>VER</span>
                               </a>
@@ -483,7 +487,7 @@
                                     </span>
                                     <div class="producto_botones">
                                        
-                                       <a class="btn_agregar" href="<?php echo $producto['id_producto']; ?>">
+                                       <a class="btn_agregar" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                           <i class="ri-heart-line"></i>
                                        </a>
                                     </div>
@@ -499,7 +503,7 @@
             </div>
    
             <div class="boton_contenedor">
-               <a href="productos/?publico=4" class="boton_general">
+               <a href="<?php echo $url_base; ?>productos/?publico=4" class="boton_general">
                   <i class="ri-football-fill"></i>
                   <span>VER MÁS ROPA PARA NIÑAS</span> 
                </a>

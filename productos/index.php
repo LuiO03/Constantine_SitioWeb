@@ -176,9 +176,10 @@
                         foreach ($productos as $producto) { ?>
                             <div class="producto">
                                 <div class="imagen_contendedor">
-                                    <img src="../images/productos/<?php echo htmlspecialchars($producto['nombre_publico']); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
 
-                                    <a class="ver_producto" href="producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
+                                    <img src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+
+                                    <a class="ver_producto" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                         <i class="ri-eye-fill"></i>
                                         <span>VER</span>
                                     </a>
@@ -197,7 +198,7 @@
                                         </span>
                                         <div class="producto_botones">
                                             
-                                            <a class="btn_agregar" href="<?php echo $producto['id_producto']; ?>">
+                                            <a class="btn_agregar" href="<?php echo $url_base; ?>productos/producto.php?id_producto=<?php echo $producto['id_producto']; ?>">
                                                 <i class="ri-heart-line"></i>
                                             </a>
                                         </div>

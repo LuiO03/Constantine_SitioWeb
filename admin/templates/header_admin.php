@@ -16,6 +16,15 @@
     }
     */
 
+    if ($_SERVER['HTTP_HOST'] === 'localhost') {
+        // URL local XAMPP
+        $url_base = "http://localhost/Constantine_SitioWeb/";
+    } else {
+        // URL producción InfinityFree
+        // $url_base = "https://luiosorio.lovestoblog.com/Constantine_SitioWeb/";
+        $url_base = "https://constantine.infinityfreeapp.com/";
+    }
+
     $directorioActual = basename(dirname($_SERVER['PHP_SELF']));
 
     $id_usuario = $_SESSION['id_usuario'];
@@ -120,7 +129,7 @@
     <div class="barra_lateral">
         <div class="logo_contenedor">
             <div class="nombre_pagina" id="logo">
-                <img src="../../../images/logos/logo_white_border.png" alt="logo">
+                <img src="<?php echo $url_base; ?>images/logos/logo_white_border.png" alt="logo">
                 <span>Constantine</span>
             </div>
             

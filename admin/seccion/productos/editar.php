@@ -5,7 +5,7 @@
     $txtID = isset($_GET['txtID']) ? $_GET['txtID'] : "";
 
     //============== CONSULTA PARA OBTENER DATOS DEL PRODUCTO ==============//
-    $sql = "SELECT * FROM productos WHERE id_producto = :id";
+    $sql = "SELECT p.*, pu.nombre_publico FROM productos p INNER JOIN publico pu ON p.id_publico = pu.id_publico WHERE p.id_producto = :id";
     $sentencia = $conexion->prepare($sql);
     $sentencia->bindParam(":id", $txtID);
     $sentencia->execute();
@@ -32,6 +32,7 @@
         $descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : "";
         $id_categoria = isset($_POST["id_categoria"]) ? $_POST["id_categoria"] : "";
         $id_publico = isset($_POST["id_publico"]) ? $_POST["id_publico"] : "";
+        $nombre_publico = isset($_POST["nombre_publico"]) ? $_POST["nombre_publico"] : "";
         $imagen = isset($_FILES["imagen"]["name"]) ? $_FILES["imagen"]["name"] : "";
         $pesoImagen = isset($_FILES["imagen"]["size"]) ? $_FILES["imagen"]["size"] : 0;
 
@@ -210,7 +211,7 @@
                     <label for="imagen" class="form-label">
                         <i class="ri-image-2-line"></i> Previsualización de la Imagen:
                     </label>
-                    <img id="preview" src="../../../images/productos/<?php echo $producto['imagen']; ?>" alt="Vista previa de la imagen" class="img-fluid rounded border w-25" style="cursor: pointer; transition: width 0.5s ease;" onclick="toggleImageSize()" />
+                    <img id="preview" src="<?php echo $url_base; ?>images/productos/<?php echo strtolower(htmlspecialchars($producto['nombre_publico'])); ?>/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="Vista previa de la imagen" class="img-fluid rounded border w-25" style="cursor: pointer; transition: width 0.5s ease;" onclick="toggleImageSize()" />
                 </div>
             </div>
 

@@ -4,7 +4,8 @@
         $url_base = "http://localhost/Constantine_SitioWeb/";
     } else {
         // URL producción InfinityFree
-        $url_base = "https://luiosorio.lovestoblog.com/Constantine_SitioWeb/";
+        // $url_base = "https://luiosorio.lovestoblog.com/Constantine_SitioWeb/";
+        $url_base = "https://constantine.infinityfreeapp.com/";
     }
     // Aquí suponemos que 'nombres' es la clave que indica si el usuario está logueado
     $usuario_logeado = isset($_SESSION['nombres']) && !empty($_SESSION['nombres']);
@@ -80,16 +81,16 @@
         <div class="nav__paginas">
             <ul>
                 <!--=============== NOSOTROS ===============-->
-                <li><a href="<?php echo $url_base;?>/nosotros/" class="pag__link">Nosotros</a></li>
+                <li><a href="<?php echo $url_base;?>nosotros/" class="pag__link">Nosotros</a></li>
                     
                 <!--=============== SERVICIOS ===============-->
-                <li><a href="<?php echo $url_base;?>/servicios/" class="pag__link">Servicios</a></li>
+                <li><a href="<?php echo $url_base;?>servicios/" class="pag__link">Servicios</a></li>
 
                 <!--=============== BLOG ===============-->
-                <li><a href="<?php echo $url_base;?>/blog/" class="pag__link">Blog</a></li>
+                <li><a href="<?php echo $url_base;?>blog/" class="pag__link">Blog</a></li>
 
                 <!--=============== CONTACTOS ===============-->
-                <li><a href="<?php echo $url_base;?>/contactos/" class="pag__link">Contactos</a></li>
+                <li><a href="<?php echo $url_base;?>contactos/" class="pag__link">Contactos</a></li>
             </ul>
         </div>
         
@@ -100,8 +101,8 @@
                 <div class="nav__data">
                     <span class="espacio"></span>
                     <!-- Logo -->
-                    <a href="<?php echo $url_base;?>/index.php" class="nav__logo">
-                        <img src="<?php echo $url_base;?>images\logos\logo_solo_black.png" alt="Logo Constantine">
+                    <a href="<?php echo $url_base;?>index.php" class="nav__logo">
+                        <img src="<?php echo $url_base;?>images/logos/logo_solo_black.png" alt="Logo Constantine">
                         <div class="texto_logo">
                             <span class="tienda_texto">Tiendas</span>
                             <div class="logo_texto">
@@ -137,20 +138,20 @@
                                         </div>
                                     </div>
                                     
-                                    <a href="<?php echo $url_base; ?>/admin/seccion/inicio/index.php" class="profile_menu-item">
+                                    <a href="<?php echo $url_base; ?>admin/seccion/inicio/index.php" class="profile_menu-item">
                                         <i class="ri-edit-line"></i> Mi Perfil
                                     </a>
-                                    <a href="<?php echo $url_base; ?>/carrito/confirmacion.php?pedido_id=<?php echo $pedidoPendiente['id_pedido']; ?>" class="profile_menu-item">
+                                    <a href="<?php echo $url_base; ?>carrito/confirmacion.php?pedido_id=<?php echo $pedidoPendiente['id_pedido']; ?>" class="profile_menu-item">
                                         <i class="ri-shopping-cart-line"></i> Mis Pedidos
                                     </a>
-                                    <a href="<?php echo $url_base; ?>/admin/seccion/inicio/cerrar.php" class="profile_menu-item">
+                                    <a href="<?php echo $url_base; ?>admin/seccion/inicio/cerrar.php" class="profile_menu-item">
                                         <i class="ri-shut-down-line"></i> Cerrar sesión
                                     </a>
                                 </div>
                             </div>
                         <?php else: ?>
                             <!-- Mostrar la clase 'user__boton' si el usuario no está logueado -->
-                            <a class="user__boton" href="<?php echo $url_base; ?>/admin/seccion/inicio/index.php">
+                            <a class="user__boton" href="<?php echo $url_base; ?>admin/seccion/inicio/index.php">
                                 <i class="ri-user-smile-fill"></i>
                                 <span class="btn_txt">Iniciar Sesión</span>
                             </a>
@@ -176,13 +177,13 @@
                             
                         <?php foreach ($publicos_categorias as $id_publico => $publico): ?>
                             <li class="dropdown__item">
-                                <a href="<?php echo $url_base;?>/productos/?publico=<?php echo $id_publico; ?>" class="nav__link">
+                                <a href="<?php echo $url_base;?>productos/?publico=<?php echo $id_publico; ?>" class="nav__link">
                                     <?php echo htmlspecialchars($publico['nombre_publico']); ?> <i class="ri-arrow-down-s-line dropdown__arrow"></i>
                                 </a>
                                 <ul class="dropdown__menu">
                                     <?php foreach ($publico['categorias'] as $categoria): ?>
                                         <li>
-                                            <a href="<?php echo $url_base;?>/productos/?publico=<?php echo $id_publico; ?>&categoria=<?php echo $categoria['nombre_categoria']; ?>" class="dropdown__link">
+                                            <a href="<?php echo $url_base;?>productos/?publico=<?php echo $id_publico; ?>&categoria=<?php echo $categoria['nombre_categoria']; ?>" class="dropdown__link">
 
                                                 <i class="ri-shopping-bag-line"></i> <?php echo htmlspecialchars($categoria['nombre_categoria']); ?>
                                             </a>
@@ -192,7 +193,7 @@
                             </li>
                         <?php endforeach; ?>
                             <li>
-                                <a href="<?php echo $url_base;?>/productos/?publico=" class="nav__link">
+                                <a href="<?php echo $url_base;?>productos/?publico=" class="nav__link">
                                     Ver todo
                                 </a>
                             </li>
@@ -229,7 +230,7 @@
                                     <ul class="lista-productos">
                                         <?php foreach ($carrito as $item) : ?>
                                             <li class="producto-item">
-                                                <img src="<?php echo $url_base;?>/images/productos/<?php echo htmlspecialchars($item['nombre_publico']); ?>/<?php echo htmlspecialchars($item['imagen']); ?>" alt="<?php echo htmlspecialchars($item['nombre_producto']); ?>" class="producto-imagen">
+                                                <img src="<?php echo $url_base;?>images/productos/<?php echo htmlspecialchars($item['nombre_publico']); ?>/<?php echo htmlspecialchars($item['imagen']); ?>" alt="<?php echo htmlspecialchars($item['nombre_producto']); ?>" class="producto-imagen">
                                                 <div class="producto-info">
                                                     <h4><?php echo htmlspecialchars($item['nombre_producto']); ?></h4>
                                                     <p>Color: <?php echo htmlspecialchars($item['nombre_color']); ?></p>
@@ -248,7 +249,7 @@
                                     Total: S/. <span id="totalCarrito"><?php echo number_format(array_sum(array_column($carrito, 'precio_total')), 2); ?></span>
                                 </p>
                                 <div class="botones">
-                                    <a href="<?php echo $url_base; ?>/carrito/carrito.php" class="btn-general btn-ver">
+                                    <a href="<?php echo $url_base; ?>carrito/carrito.php" class="btn-general btn-ver">
                                         <i class="ri-eye-line"></i> Ver Carrito
                                     </a>
                                     <button class="btn-general btn-procesar">
@@ -261,16 +262,16 @@
                         <ul class="nav_info_movil">
                             <div class="linea"></div>
                             <!--=============== NOSOTROS ===============-->
-                            <li><a href="<?php echo $url_base;?>/nosotros/" class="nav__link">Nosotros<?php echo $total_productos; ?></a></li>
+                            <li><a href="<?php echo $url_base;?>nosotros/" class="nav__link">Nosotros<?php echo $total_productos; ?></a></li>
                             
                             <!--=============== SERVICIOS ===============-->
-                            <li><a href="<?php echo $url_base;?>/servicios/" class="nav__link">Servicios</a></li>
+                            <li><a href="<?php echo $url_base;?>servicios/" class="nav__link">Servicios</a></li>
     
                             <!--=============== BLOG ===============-->
-                            <li><a href="<?php echo $url_base;?>/blog/" class="nav__link">Blog</a></li>
+                            <li><a href="<?php echo $url_base;?>blog/" class="nav__link">Blog</a></li>
     
                             <!--=============== CONTACTOS ===============-->
-                            <li><a href="<?php echo $url_base;?>/contactos/" class="nav__link">Contactos</a></li>
+                            <li><a href="<?php echo $url_base;?>contactos/" class="nav__link">Contactos</a></li>
                             
                         </ul>
 
